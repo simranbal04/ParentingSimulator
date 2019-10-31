@@ -13,7 +13,7 @@ class ViewController: UIViewController, WCSessionDelegate  {
 
     // MARK: Outlets
     @IBOutlet weak var outputLabel: UITextView!
-    
+    private var PokemonSelected: String = ""
     // MARK: Required WCSessionDelegate variables
     // ------------------------------------------
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
@@ -107,6 +107,7 @@ class ViewController: UIViewController, WCSessionDelegate  {
     @IBAction func pokemonButtonPressed(_ sender: Any) {
         print("You pressed the pokemon button")
         
+        
         if(WCSession.default.isReachable == true){
             //Here is the message you want to send to the watch
             let message = ["name":"Pikachu"]
@@ -133,6 +134,12 @@ class ViewController: UIViewController, WCSessionDelegate  {
         
         }
     }
+    
+//    func nametoWatch () {
+//        let message = ["name": self.selectedPokemon]
+//        WCSession.default.sendMessage(message, replyHandler: nil)
+//
+//    }
     
     
 }

@@ -92,7 +92,7 @@ class Screen2Sample: WKInterfaceController, WCSessionDelegate {
     
     @IBAction func selectNameButtonPressed() {
         print("select name button pressed")
-        self.nameLabel.setText("You Got Pikachu")
+//        self.nameLabel.setText("You Got Pikachu")
     }
     
 

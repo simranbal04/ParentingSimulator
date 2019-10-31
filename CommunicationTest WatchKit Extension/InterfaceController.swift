@@ -25,6 +25,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     @IBOutlet var outputLabel: WKInterfaceLabel!
     
     
+     private var pokemonName = ""
+    
     
     // MARK: Delegate functions
     // ---------------------
@@ -45,27 +47,27 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         let name = message["name"] as! String
         print("\(name)")
         nameSelection(name: name)
-        
-        
+//
+//
     }
     
     
     func nameSelection(name:String) {
-//        if (name == "Pikachu") {
-//            print("pikachu is ")
-//
-//
-////             self.nameLabel.setText("Pikachu is selected")
-//            nameButtonPressed()
-////            self.pokemonImageView.setImage(pikachu)
-//            //            nameLabel(name: name)
-//        }
-//        else {
-//            print("caterpie is selected")
-////            self.nameLabel.setText("")
-//
-//        }
-    }
+        if (name == "Pikachu") {
+            print("pikachu is ")
+
+
+//             self.nameLabel.setText("Pikachu is selected")
+            nameButtonPressed()
+//            self.pokemonImageView.setImage(pikachu)
+            //            nameLabel(name: name)
+        }
+        else {
+            print("caterpie is selected")
+//            self.nameLabel.setText("")
+
+        }
+   }
 
 
     
@@ -129,6 +131,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     // MARK: Functions for Pokemon Parenting
     @IBAction func nameButtonPressed() {
         print("name button pressed")
+         self.namePokemon()
 //        self.nameLabel.setText("You Got Pikachu")
         
     }
@@ -145,7 +148,24 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         print("Hibernate button pressed")
     }
     
-    
-    
+    func namePokemon()
+    {
+        // to select name
+        let PokemonName = ["Jimmy", "tom", "rolo"]
+        presentTextInputController(withSuggestions: PokemonName, allowedInputMode: .plain)
+        {
+            (results) in
+            
+            if(results != nil && results!.count > 0) {
+                // 2. write your code to process the person's response
+                let userResponse = results?.first as? String
+                print(userResponse)
+                self.pokemonName = userResponse!
+                self.nameLabel.setText(userResponse)
+        }
 }
 
+        
+        //
+}
+}
