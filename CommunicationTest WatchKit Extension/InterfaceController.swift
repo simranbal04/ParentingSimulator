@@ -26,6 +26,11 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     
      private var pokemonName = ""
+     private var StartGame: Bool = false
+
+     private var timing = Timer()
+    
+     private var TimeIntervalUpdation:Double = 0.5 // after every 5 sec
     
     
     // MARK: Delegate functions
@@ -136,18 +141,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         
     }
 
-    @IBAction func startButtonPressed() {
-        print("Start button pressed")
-    }
-    
-    @IBAction func feedButtonPressed() {
-        print("Feed button pressed")
-    }
-    
-    @IBAction func hibernateButtonPressed() {
-        print("Hibernate button pressed")
-    }
-    
     func namePokemon()
     {
         // to select name
@@ -162,10 +155,42 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
                 print(userResponse)
                 self.pokemonName = userResponse!
                 self.nameLabel.setText(userResponse)
+            }
         }
-}
-
         
-        //
-}
+        
+        
+    }
+    
+    @IBAction func startButtonPressed() {
+        print("Start button pressed")
+        print(pokemonName)
+        if(pokemonName != "") {
+            self.nameLabel.setText("\(self.pokemonName) is Hungry")
+            self.StartGame = true
+//            self.scheduleTimer()
+        
+        }
+        else {
+            print("Name not Given")
+        }
+        
+    }
+    
+    
+    func scheduleTimer(){
+        //Call UpdateGame every 5 seconds
+        self.timing = Timer.scheduledTimer(timeInterval: self.TimeIntervalUpdation, target: self, selector: Selector(("updateGame")), userInfo: nil, repeats: true)
+    }
+    
+    
+    @IBAction func feedButtonPressed() {
+        print("Feed button pressed")
+    }
+    
+    @IBAction func hibernateButtonPressed() {
+        print("Hibernate button pressed")
+    }
+    
+   
 }
