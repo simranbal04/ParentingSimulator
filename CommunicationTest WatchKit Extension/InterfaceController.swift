@@ -32,6 +32,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
      private var TimeIntervalUpdation:Double = 0.5 // after every 5 sec
     
+    private var PointsforHungar = 0;
+    private var PointsforHealth = 100;
     
     // MARK: Delegate functions
     // ---------------------
@@ -186,7 +188,20 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     @IBAction func feedButtonPressed() {
         print("Feed button pressed")
+        // condition to check hunger stats with heath stats
+        if (PointsforHungar>=1 && PointsforHealth>0)
+        {
+            self.PointsforHungar = self.PointsforHealth - 12
+            
+        }
+        else if(PointsforHealth==0)
+        {
+            nameLabel.setText("Pokemon is dead")
+        }
+        
     }
+    
+    
     
     @IBAction func hibernateButtonPressed() {
         print("Hibernate button pressed")

@@ -124,7 +124,7 @@ class Screen2Sample: WKInterfaceController, WCSessionDelegate {
         if(pokemonName != "") {
             self.nameLabel.setText("\(self.pokemonName) is Hungry")
             self.StartGame = true
-            //            self.scheduleTimer()
+                        self.scheduleTimer()
             
         }
         else {
@@ -137,10 +137,10 @@ class Screen2Sample: WKInterfaceController, WCSessionDelegate {
         self.timing = Timer.scheduledTimer(timeInterval: self.TimeIntervalUpdation, target: self, selector: Selector(("updateGame")), userInfo: nil, repeats: true)
     }
     
-    @IBAction func selectNameButtonPressed() {
-        print("select name button pressed")
-//        self.nameLabel.setText("You Got Pikachu")
-    }
-    
+//    @IBAction func selectNameButtonPressed() {
+//        print("select name button pressed")
+////        self.nameLabel.setText("You Got Pikachu")
+//    }
+//
 
 }

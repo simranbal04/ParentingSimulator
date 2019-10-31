@@ -54,6 +54,7 @@
                                     <fontDescription key="font" type="system" pointSize="13"/>
                                     <connections>
                                         <action selector="feedButtonPressed" destination="AgC-eL-Hgc" id="7p2-0N-wzS"/>
+                                        <segue destination="TKJ-vR-82D" kind="modal" id="Csr-ij-ioX"/>
                                     </connections>
                                 </button>
                                 <button alignment="center" title="H" id="yEc-zK-6HE">
@@ -98,6 +99,7 @@
                             <color key="backgroundColor" red="1" green="0.9385274106" blue="0.23414020229999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="startButtonPressed" destination="TKJ-vR-82D" id="yIB-Vl-PdC"/>
+                                <segue destination="AgC-eL-Hgc" kind="push" id="Zw3-zZ-ZUa"/>
                             </connections>
                         </button>
                     </items>
