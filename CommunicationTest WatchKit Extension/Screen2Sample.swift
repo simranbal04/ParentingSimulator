@@ -44,6 +44,33 @@ class Screen2Sample: WKInterfaceController, WCSessionDelegate {
         
     }
     
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        print("Watch:Got message from phone 2 ")
+        
+                let name = message["name"] as! String
+                print("\(name)")
+                nameSelection(name: name)
+
+    }
+    
+    func nameSelection(name:String) {
+        if (name == "Pikachu") {
+            print("pikachu is ")
+            
+            
+            //             self.nameLabel.setText("Pikachu is selected")
+            selectNameButtonPressed()
+            //            self.pokemonImageView.setImage(pikachu)
+            //            nameLabel(name: name)
+        }
+        else {
+            print("caterpie is selected")
+            //            self.nameLabel.setText("")
+            
+        }
+    }
+    
+    
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
@@ -65,6 +92,7 @@ class Screen2Sample: WKInterfaceController, WCSessionDelegate {
     
     @IBAction func selectNameButtonPressed() {
         print("select name button pressed")
+        self.nameLabel.setText("You Got Pikachu")
     }
     
 
