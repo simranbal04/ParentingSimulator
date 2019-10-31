@@ -21,6 +21,14 @@ class Screen2Sample: WKInterfaceController, WCSessionDelegate {
     // 2. Outlet for the label
     @IBOutlet var nameLabel: WKInterfaceLabel!
     
+    
+    private var pokemonName = ""
+    private var StartGame: Bool = false
+    
+    private var timing = Timer()
+    
+    private var TimeIntervalUpdation:Double = 0.5 // after every 5 sec
+    
     // MARK: Delegate functions
     // ---------------------
     
@@ -59,7 +67,7 @@ class Screen2Sample: WKInterfaceController, WCSessionDelegate {
             
             
             //             self.nameLabel.setText("Pikachu is selected")
-            selectNameButtonPressed()
+//            selectNameButtonPressed()
             //            self.pokemonImageView.setImage(pikachu)
             //            nameLabel(name: name)
         }
@@ -84,11 +92,50 @@ class Screen2Sample: WKInterfaceController, WCSessionDelegate {
     }
     
     
+    
+    @IBAction func nameselect() {
+        print("Name button is pressed")
+        self.namePokemon()
+    }
+    
+    func namePokemon()
+    {
+        // to select name
+        let PokemonName = ["Jimmy", "tom", "rolo"]
+        presentTextInputController(withSuggestions: PokemonName, allowedInputMode: .plain)
+        {
+            (results) in
+            
+            if(results != nil && results!.count > 0) {
+                // 2. write your code to process the person's response
+                let userResponse = results?.first as? String
+                print(userResponse)
+                self.pokemonName = userResponse!
+                self.nameLabel.setText(userResponse)
+            }
+        }
+        
+    }
     // MARK: Actions
     @IBAction func startButtonPressed() {
         print("Start button pressed")
+        print("Start button pressed")
+        print(pokemonName)
+        if(pokemonName != "") {
+            self.nameLabel.setText("\(self.pokemonName) is Hungry")
+            self.StartGame = true
+            //            self.scheduleTimer()
+            
+        }
+        else {
+            print("Name not Given")
+        }
     }
     
+    func scheduleTimer(){
+        //Call UpdateGame every 5 seconds
+        self.timing = Timer.scheduledTimer(timeInterval: self.TimeIntervalUpdation, target: self, selector: Selector(("updateGame")), userInfo: nil, repeats: true)
+    }
     
     @IBAction func selectNameButtonPressed() {
         print("select name button pressed")

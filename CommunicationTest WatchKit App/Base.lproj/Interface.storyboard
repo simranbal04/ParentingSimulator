@@ -46,6 +46,7 @@
                                     <fontDescription key="font" type="system" pointSize="13"/>
                                     <connections>
                                         <action selector="startButtonPressed" destination="AgC-eL-Hgc" id="Fp1-tc-PGk"/>
+                                        <segue destination="TKJ-vR-82D" kind="modal" id="PS1-zN-xDl"/>
                                     </connections>
                                 </button>
                                 <button alignment="center" title="F" id="omX-xO-7Ft">
@@ -87,7 +88,7 @@
                         <button width="1" alignment="left" title="Give me a name" id="aem-N8-vQs">
                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="selectNameButtonPressed" destination="TKJ-vR-82D" id="PWX-4J-nLv"/>
+                                <action selector="nameselect" destination="TKJ-vR-82D" id="w5V-Hw-rnM"/>
                             </connections>
                         </button>
                         <imageView alignment="center" id="YVj-81-CS0"/>
@@ -109,4 +110,7 @@
             <point key="canvasLocation" x="622" y="32"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="d1m-0J-5LF"/>
+    </inferredMetricsTieBreakers>
 </document>
