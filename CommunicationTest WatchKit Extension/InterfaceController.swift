@@ -38,10 +38,34 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
         print("WATCH: Got message from Phone")
         // Message from phone comes in this format: ["course":"MADT"]
-        let messageBody = message["course"] as! String
-        messageLabel.setText(messageBody)
+//        let messageBody = message["course"] as! String
+//        messageLabel.setText(messageBody)
+//
+  // connection check 
+        let name = message["name"] as! String
+        print("\(name)")
+        nameSelection(name: name)
+        
+        
     }
     
+    
+    func nameSelection(name:String) {
+//        if (name == "Pikachu") {
+//            print("pikachu is ")
+//
+//
+////             self.nameLabel.setText("Pikachu is selected")
+//            nameButtonPressed()
+////            self.pokemonImageView.setImage(pikachu)
+//            //            nameLabel(name: name)
+//        }
+//        else {
+//            print("caterpie is selected")
+////            self.nameLabel.setText("")
+//
+//        }
+    }
 
 
     
@@ -105,6 +129,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     // MARK: Functions for Pokemon Parenting
     @IBAction func nameButtonPressed() {
         print("name button pressed")
+//        self.nameLabel.setText("You Got Pikachu")
+        
     }
 
     @IBAction func startButtonPressed() {
@@ -119,4 +145,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         print("Hibernate button pressed")
     }
     
+    
+    
 }
+

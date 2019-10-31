@@ -34,6 +34,10 @@ class ViewController: UIViewController, WCSessionDelegate  {
     // 3. This function is called when Phone receives message from Watch
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         
+        let name = message["name"] as! String
+        print("\(name)")
+        
+        
         // 1. When a message is received from the watch, output a message to the UI
         // NOTE: Since session() runs in background, you cannot directly update UI from the background thread.
         // Therefore, you need to wrap any UI updates inside a DispatchQueue for it to work properly.
@@ -103,12 +107,31 @@ class ViewController: UIViewController, WCSessionDelegate  {
     @IBAction func pokemonButtonPressed(_ sender: Any) {
         print("You pressed the pokemon button")
         
-        
-        
+        if(WCSession.default.isReachable == true){
+            //Here is the message you want to send to the watch
+            let message = ["name":"Pikachu"]
+            WCSession.default.sendMessage(message, replyHandler: nil)
+            
+        }
+        else
+        {
+            
+        }
         
     }
+    
     @IBAction func caterpieButtonPressed(_ sender: Any) {
         print("You pressed the caterpie button")
+        if(WCSession.default.isReachable == true){
+            // Here is the message you want to send to the watch
+            let message = ["name":"Caterpie"]
+            WCSession.default.sendMessage(message, replyHandler: nil)
+          
+        }
+        else
+        {
+        
+        }
     }
     
     
