@@ -94,12 +94,18 @@
                         </button>
                         <imageView alignment="center" id="YVj-81-CS0"/>
                         <label alignment="left" text="Label" id="hsS-ha-cvx"/>
-                        <button width="1" alignment="left" title="Start" id="pBg-zB-rVo">
+                        <button width="48" alignment="left" title="Start" id="pBg-zB-rVo">
                             <color key="titleColor" red="0.31372549020000001" green="0.27450980390000002" blue="0.34509803919999998" alpha="1" colorSpace="deviceRGB"/>
                             <color key="backgroundColor" red="1" green="0.9385274106" blue="0.23414020229999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="startButtonPressed" destination="TKJ-vR-82D" id="yIB-Vl-PdC"/>
                                 <segue destination="AgC-eL-Hgc" kind="push" id="Zw3-zZ-ZUa"/>
+                            </connections>
+                        </button>
+                        <button width="51" height="30" alignment="left" title="Feed" id="8NY-qP-IUm">
+                            <color key="backgroundColor" red="0.81841659595308014" green="1" blue="0.10697385204113041" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="feedButton" destination="TKJ-vR-82D" id="RG0-2M-PCX"/>
                             </connections>
                         </button>
                     </items>
@@ -109,7 +115,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="622" y="32"/>
+            <point key="canvasLocation" x="622" y="26"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

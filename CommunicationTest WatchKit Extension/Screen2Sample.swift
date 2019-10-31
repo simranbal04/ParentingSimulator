@@ -29,6 +29,9 @@ class Screen2Sample: WKInterfaceController, WCSessionDelegate {
     
     private var TimeIntervalUpdation:Double = 0.5 // after every 5 sec
     
+    private var PointsforHungar = 0;
+    private var PointsforHealth = 100;
+    
     // MARK: Delegate functions
     // ---------------------
     
@@ -136,6 +139,27 @@ class Screen2Sample: WKInterfaceController, WCSessionDelegate {
         //Call UpdateGame every 5 seconds
         self.timing = Timer.scheduledTimer(timeInterval: self.TimeIntervalUpdation, target: self, selector: Selector(("updateGame")), userInfo: nil, repeats: true)
     }
+    
+    
+    
+    @IBAction func feedButton() {
+        print("Feed button pressed")
+        // condition to check hunger stats with heath stats
+        if (PointsforHungar>=1 && PointsforHealth>0)
+        {
+            self.PointsforHungar = self.PointsforHealth - 12
+            
+        }
+        else if(PointsforHealth==0)
+        {
+            nameLabel.setText("Pokemon is dead")
+        }
+    }
+    
+    
+    
+    
+    
     
 //    @IBAction func selectNameButtonPressed() {
 //        print("select name button pressed")
